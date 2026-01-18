@@ -1,12 +1,11 @@
 import React from 'react';
 export default function App() {
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-10 text-center">
-      <div className="w-24 h-24 bg-blue-600 rounded-3xl flex items-center justify-center text-5xl mb-10 shadow-4xl animate-bounce">▲</div>
-      <h1 className="text-6xl font-black text-white mb-6">بصيرة PRO</h1>
-      <p className="text-blue-400 text-xl font-bold tracking-widest uppercase mb-12">النظام نشط ومؤمن بالكامل</p>
-      <div className="p-8 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-xl">
-        <p className="text-slate-400 font-medium italic">"مرحباً بك في القمة. هذه النسخة تعمل الآن على سحابة Vercel بنجاح."</p>
+    <div style={{minHeight:'100vh', background:'#020617', color:'white', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', textAlign:'center', padding:'20px'}}>
+      <h1 style={{fontSize:'4rem', fontWeight:'900', marginBottom:'20px'}}>بصيرة PRO</h1>
+      <p style={{fontSize:'1.5rem', color:'#3b82f6', fontWeight:'700', letterSpacing:'0.2em'}}>النظام الاستراتيجي يعمل بكفاءة 🛡️</p>
+      <div style={{marginTop:'40px', padding:'30px', background:'rgba(255,255,255,0.05)', borderRadius:'24px', border:'1px solid rgba(255,255,255,0.1)'}}>
+        <p>تم تفعيل محرك Gemini بنجاح على سحابة Vercel.</p>
       </div>
     </div>
   );
