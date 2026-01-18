@@ -1,11 +1,12 @@
 import React from 'react';
 export default function App() {
   return (
-    <div style={{minHeight:'100vh', background:'#020617', color:'white', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', textAlign:'center', padding:'20px'}}>
-      <h1 style={{fontSize:'4rem', fontWeight:'900', marginBottom:'20px'}}>بصيرة PRO</h1>
-      <p style={{fontSize:'1.5rem', color:'#3b82f6', fontWeight:'700', letterSpacing:'0.2em'}}>النظام الاستراتيجي يعمل بكفاءة 🛡️</p>
-      <div style={{marginTop:'40px', padding:'30px', background:'rgba(255,255,255,0.05)', borderRadius:'24px', border:'1px solid rgba(255,255,255,0.1)'}}>
-        <p>تم تفعيل محرك Gemini بنجاح على سحابة Vercel.</p>
+    <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-10 text-center">
+      <div className="w-24 h-24 bg-blue-600 rounded-[2rem] flex items-center justify-center text-5xl mb-12 shadow-4xl animate-bounce">▲</div>
+      <h1 className="text-7xl font-black text-white mb-6">بصيرة PRO</h1>
+      <p className="text-blue-400 text-2xl font-bold tracking-widest uppercase mb-12">نظام التشغيل المعرفي نشط</p>
+      <div className="p-10 bg-white/5 border border-white/10 rounded-[3rem] backdrop-blur-3xl max-w-2xl">
+        <p className="text-slate-300 text-lg leading-relaxed italic">"تم تفعيل محرك Gemini 3 Pro بنجاح. المنصة الآن متصلة بالسحابة العالمية."</p>
       </div>
     </div>
   );
