@@ -1,17 +1,16 @@
 {
-  "name": "baseera-pro-ultra",
+  "name": "baseera-pro-live",
   "private": true,
-  "version": "2.0.0",
+  "version": "4.0.0",
   "type": "module",
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "@google/genai": "^1.37.0",
-    "lucide-react": "^0.460.0"
+    "@google/genai": "^1.37.0"
   },
-  "devDependencies": {
-    "vite": "^6.0.0",
-    "@vitejs/plugin-react": "^4.3.0",
-    "typescript": "^5.6.0"
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   }
 }
