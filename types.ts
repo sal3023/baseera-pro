@@ -1,2 +1,2 @@
-export interface Post { id: string; title: string; excerpt: string; content: string; author: string; date: string; category: string; image: string; readTime: string; views: number; } 
- export enum ViewMode { HOME = 'HOME', POST = 'POST', DASHBOARD = 'DASHBOARD', EDITOR = 'EDITOR', ABOUT = 'ABOUT', WORKFLOW = 'WORKFLOW' }
+export interface Post { id: string; title: string; excerpt: string; content: string; author: string; date: string; category: string; image: string; readTime: string; views: number; }
+export enum ViewMode { HOME = 'HOME', POST = 'POST', EDITOR = 'EDITOR', DASHBOARD = 'DASHBOARD', WORKFLOW = 'WORKFLOW' }
