@@ -1,7 +1,7 @@
 {
-  "name": "baseera-pro-live",
+  "name": "baseera-pro-ultra",
   "private": true,
-  "version": "5.6.0",
+  "version": "6.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
