@@ -1,7 +1,7 @@
 {
-  "name": "baseera-pro-production",
+  "name": "baseera-pro-global",
   "private": true,
-  "version": "15.0.0",
+  "version": "16.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,7 +11,11 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "@google/genai": "^1.37.0"
+    "@google/genai": "^1.37.0",
+    "recharts": "^2.15.0",
+    "lucide-react": "^0.469.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.5"
   },
   "devDependencies": {
     "vite": "^6.0.0",
