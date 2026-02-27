@@ -223,10 +223,10 @@ export default function App() {
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl"></div>
         </div>
         
-        <div className="relative z-10 max-w-md w-full">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-24 h-24 mb-6 rounded-3xl bg-gradient-to-br from-cyan-400 to-blue-600 shadow-2xl shadow-cyan-500/30">
-              <Brain className="w-12 h-12 text-white" />
+        <div className="relative z-10 max-w-md w-full px-4">
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-24 sm:h-24 mb-4 sm:mb-6 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-cyan-400 to-blue-600 shadow-2xl shadow-cyan-500/30">
+              <Brain className="w-8 h-8 sm:w-12 sm:h-12 text-white" />
             </div>
             <h1 className="text-4xl font-black text-white mb-2">بصيرة PRO</h1>
             <p className="text-cyan-400 font-medium">منصة إنشاء المقالات بالذكاء الاصطناعي</p>
@@ -282,21 +282,21 @@ export default function App() {
 
   // Render Articles Tab
   const renderArticles = () => (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Create Article Card */}
-      <div className="bg-slate-800/50 border border-white/10 rounded-2xl p-6">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
-            <Wand2 className="w-5 h-5 text-white" />
+      <div className="bg-slate-800/50 border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6">
+        <div className="flex items-center gap-3 mb-4 sm:mb-6">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+            <Wand2 className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-white">إنشاء مقالة جديدة</h2>
-            <p className="text-sm text-slate-400">اكتب موضوعاً وأنا سأقوم بإنشاء مقالة متكاملة مع صورة</p>
+            <h2 className="text-base sm:text-xl font-bold text-white">إنشاء مقالة جديدة</h2>
+            <p className="text-xs sm:text-sm text-slate-400 hidden sm:block">اكتب موضوعاً وأنا سأقوم بإنشاء مقالة متكاملة مع صورة</p>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-4 mb-4">
-          <div className="md:col-span-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-3 sm:mb-4">
+          <div className="sm:col-span-2">
             <input
               type="text"
               value={newArticle.topic}
@@ -359,7 +359,7 @@ export default function App() {
       </div>
 
       {/* Articles Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {articles.length === 0 ? (
           <div className="md:col-span-2 lg:col-span-3 text-center py-12">
             <FileText className="w-16 h-16 text-slate-600 mx-auto mb-4" />
@@ -440,15 +440,15 @@ export default function App() {
 
       {/* Article Modal */}
       {selectedArticle && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setSelectedArticle(null)}>
-          <div className="bg-slate-800 border border-white/10 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
-            <div className="relative h-64">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4" onClick={() => setSelectedArticle(null)}>
+          <div className="bg-slate-800 border border-white/10 rounded-2xl sm:rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
+            <div className="relative h-40 sm:h-64">
               <img src={selectedArticle.image} alt={selectedArticle.title} className="w-full h-full object-cover" />
-              <button onClick={() => setSelectedArticle(null)} className="absolute top-4 right-4 p-2 bg-black/50 rounded-full hover:bg-black/70 transition-colors">
-                <X className="w-5 h-5 text-white" />
+              <button onClick={() => setSelectedArticle(null)} className="absolute top-2 sm:top-4 right-2 sm:right-4 p-2 bg-black/50 rounded-full hover:bg-black/70 transition-colors">
+                <X className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </button>
             </div>
-            <div className="p-8">
+            <div className="p-4 sm:p-8">
               <h1 className="text-3xl font-black text-white mb-4">{selectedArticle.title}</h1>
               <div className="flex flex-wrap gap-3 mb-6">
                 {selectedArticle.tags.map((tag, i) => (
@@ -475,17 +475,17 @@ export default function App() {
 
   // Render Home Tab
   const renderHome = () => (
-    <div className="space-y-8">
+    <div className="space-y-4 sm:space-y-8">
       {/* Status Card */}
-      <div className="bg-slate-800/50 border border-white/10 rounded-2xl p-6">
-        <div className="flex items-center justify-between mb-6">
+      <div className="bg-slate-800/50 border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 sm:mb-6">
           <div className="flex items-center gap-3">
-            <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${allActive ? 'bg-gradient-to-br from-green-400 to-emerald-600' : 'bg-gradient-to-br from-blue-400 to-cyan-600'}`}>
-              {allActive ? <Zap className="w-6 h-6" /> : <Brain className="w-6 h-6" />}
+            <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center ${allActive ? 'bg-gradient-to-br from-green-400 to-emerald-600' : 'bg-gradient-to-br from-blue-400 to-cyan-600'}`}>
+              {allActive ? <Zap className="w-5 h-5 sm:w-6 sm:h-6" /> : <Brain className="w-5 h-5 sm:w-6 sm:h-6" />}
             </div>
             <div>
-              <h2 className="text-xl font-bold text-white">حالة النظام</h2>
-              <p className="text-sm text-slate-400">{status}</p>
+              <h2 className="text-base sm:text-xl font-bold text-white">حالة النظام</h2>
+              <p className="text-xs sm:text-sm text-slate-400">{status}</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -494,30 +494,30 @@ export default function App() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
           {[
             { icon: Brain, label: 'Gemini API', active: systemStatus.gemini },
             { icon: Cloud, label: 'السحابة', active: systemStatus.cloud },
             { icon: Shield, label: 'الحماية', active: systemStatus.security },
             { icon: Zap, label: 'الأداء', active: systemStatus.performance },
           ].map(({ icon: Icon, label, active }) => (
-            <div key={label} className={`p-4 rounded-xl border ${active ? 'bg-green-500/10 border-green-500/30' : 'bg-white/5 border-white/10'}`}>
-              <Icon className={`w-6 h-6 mb-2 ${active ? 'text-green-400' : 'text-slate-500'}`} />
-              <p className={`text-sm font-medium ${active ? 'text-green-400' : 'text-slate-500'}`}>{label}</p>
+            <div key={label} className={`p-3 sm:p-4 rounded-xl border ${active ? 'bg-green-500/10 border-green-500/30' : 'bg-white/5 border-white/10'}`}>
+              <Icon className={`w-5 h-5 sm:w-6 sm:h-6 mb-2 ${active ? 'text-green-400' : 'text-slate-500'}`} />
+              <p className={`text-xs sm:text-sm font-medium ${active ? 'text-green-400' : 'text-slate-500'}`}>{label}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* Quick Stats */}
-      <div className="grid md:grid-cols-3 gap-6">
-        <div className="bg-slate-800/50 border border-white/10 rounded-2xl p-6">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
-              <FileText className="w-6 h-6 text-blue-400" />
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+        <div className="bg-slate-800/50 border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-blue-500/20 flex items-center justify-center">
+              <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
             </div>
             <div>
-              <p className="text-3xl font-bold text-white">{articles.length}</p>
+              <p className="text-2xl sm:text-3xl font-bold text-white">{articles.length}</p>
               <p className="text-sm text-slate-400">المقالات المنشأة</p>
             </div>
           </div>
@@ -547,18 +547,18 @@ export default function App() {
       </div>
 
       {/* Quick Action */}
-      <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-2xl p-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="text-xl font-bold text-white mb-2">ابدأ الآن!</h3>
-            <p className="text-slate-400">أنشئ مقالتك الأولى المتوافقة مع أدسنس</p>
+      <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-xl sm:rounded-2xl p-4 sm:p-6">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-center sm:text-right">
+            <h3 className="text-base sm:text-xl font-bold text-white mb-1 sm:mb-2">ابدأ الآن!</h3>
+            <p className="text-xs sm:text-sm text-slate-400">أنشئ مقالتك الأولى المتوافقة مع أدسنس</p>
           </div>
           <button
             onClick={() => setActiveTab('articles')}
-            className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-bold text-white hover:shadow-lg hover:shadow-cyan-500/30 transition-all flex items-center gap-2"
+            className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg sm:rounded-xl font-bold text-white hover:shadow-lg hover:shadow-cyan-500/30 transition-all flex items-center gap-2 text-sm sm:text-base"
           >
-            <Sparkles className="w-5 h-5" />
-            إنشاء مقالة
+            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
+            إنشاء
           </button>
         </div>
       </div>
@@ -568,23 +568,23 @@ export default function App() {
   // Main Layout
   return (
     <div className="min-h-screen bg-slate-950 text-white">
-      {/* Header */}
+      {/* Header - Mobile Responsive */}
       <header className="fixed top-0 left-0 right-0 z-40 bg-slate-900/95 backdrop-blur-xl border-b border-white/10">
-        <div className="flex items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-4">
+        <div className="flex items-center justify-between px-3 sm:px-6 py-3">
+          <div className="flex items-center gap-2 sm:gap-4">
             <button onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2 hover:bg-white/10 rounded-lg transition-colors">
               {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center">
-                <Brain className="w-5 h-5 text-white" />
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center">
+                <Brain className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
-              <span className="text-lg font-bold">بصيرة PRO</span>
+              <span className="text-sm sm:text-lg font-bold">بصيرة PRO</span>
             </div>
           </div>
           
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1 bg-green-500/20 rounded-full">
+          <div className="flex items-center gap-2 sm:gap-4">
+            <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-green-500/20 rounded-full">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
               <span className="text-sm text-green-400">متصل</span>
             </div>
@@ -595,8 +595,8 @@ export default function App() {
         </div>
       </header>
 
-      {/* Sidebar */}
-      <aside className={`fixed top-17 left-0 bottom-0 w-64 bg-slate-900 border-r border-white/10 z-30 transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      {/* Sidebar - Mobile Responsive */}
+      <aside className={`fixed top-14 sm:top-16 left-0 bottom-0 w-64 bg-slate-900 border-r border-white/10 z-30 transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <nav className="p-4 space-y-2">
           {[
             { id: 'home', icon: Activity, label: 'الرئيسية' },
@@ -606,8 +606,8 @@ export default function App() {
           ].map(({ id, icon: Icon, label }) => (
             <button
               key={id}
-              onClick={() => setActiveTab(id as TabType)}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${activeTab === id ? 'bg-cyan-500/20 text-cyan-400' : 'text-slate-400 hover:bg-white/5 hover:text-white'}`}
+              onClick={() => { setActiveTab(id as TabType); setSidebarOpen(false); }}
+              className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-colors ${activeTab === id ? 'bg-cyan-500/20 text-cyan-400' : 'text-slate-400 hover:bg-white/5 hover:text-white'}`}
             >
               <Icon className="w-5 h-5" />
               <span className="font-medium">{label}</span>
@@ -619,9 +619,14 @@ export default function App() {
         </nav>
       </aside>
 
-      {/* Main Content */}
-      <main className={`pt-17 min-h-screen transition-all duration-300 ${sidebarOpen ? 'mr-64' : 'mr-0'}`}>
-        <div className="p-8">
+      {/* Mobile Overlay */}
+      {sidebarOpen && (
+        <div className="fixed inset-0 bg-black/50 z-20 lg:hidden" onClick={() => setSidebarOpen(false)}></div>
+      )}
+
+      {/* Main Content - Mobile Responsive */}
+      <main className="pt-14 sm:pt-16 min-h-screen transition-all duration-300">
+        <div className="p-3 sm:p-6 lg:p-8">
           {activeTab === 'home' && renderHome()}
           {activeTab === 'articles' && renderArticles()}
           {activeTab === 'analytics' && (
