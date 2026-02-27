@@ -1,0 +1,23 @@
+nohup: ignoring input
+
+> baseera-pro@1.0.0 dev
+> vite
+
+
+  VITE v6.4.1  ready in 174 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://10.2.34.149:3000/
+6:11:12 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+6:11:13 PM [vite] (client) ✨ new dependencies optimized: @google/generative-ai
+6:11:13 PM [vite] (client) ✨ optimized dependencies changed. reloading
+6:45:25 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+6:51:02 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+6:51:25 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+6:51:41 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+6:52:25 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+6:53:01 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+6:53:25 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+6:53:47 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+6:56:13 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+6:58:40 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
