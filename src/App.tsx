@@ -67,15 +67,37 @@ export default function App() {
   const [generationProgress, setGenerationProgress] = useState('');
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [isDemoMode, setIsDemoMode] = useState(false);
 
   // Load saved API key
   useEffect(() => {
     const savedKey = localStorage.getItem('gemini_api_key');
     if (savedKey) {
       setApiKey(savedKey);
-      activateSystem(savedKey);
+      // Auto-login with saved key
+      setShowKeyInput(false);
+      setSystemStatus({
+        gemini: true,
+        cloud: true,
+        security: true,
+        performance: true
+      });
+      setStatus('تم استعادة الجلسة بنجاح - النظام جاهز');
     }
   }, []);
+
+  // Demo mode without API key
+  const activateDemoMode = () => {
+    setIsDemoMode(true);
+    setShowKeyInput(false);
+    setSystemStatus({
+      gemini: true,
+      cloud: true,
+      security: true,
+      performance: true
+    });
+    setStatus('وضع التجربة - النظام جاهز');
+  };
 
   const activateSystem = async (key: string) => {
     if (!key.trim()) {
@@ -127,11 +149,67 @@ export default function App() {
 
   // Generate Article with Gemini
   const generateArticle = async () => {
-    if (!newArticle.topic.trim() || !apiKey) return;
+    if (!newArticle.topic.trim()) {
+      setError('الرجاء إدخال موضوع المقالة');
+      return;
+    }
     
     setIsGenerating(true);
     setGenerationProgress('جاري إنشاء المقالة...');
 
+    // Demo mode - create sample article without API
+    if (!apiKey) {
+      await delay(1500);
+      setGenerationProgress('جاري كتابة المحتوى...');
+      await delay(1500);
+      
+      const demoContent = `# ${newArticle.topic}
+
+## مقدمة
+
+${newArticle.topic} هو موضوع هام في وقتنا الحالي. سنستعرض في هذه المقالة أهم الجوانب والتفاصيل المتعلقة بهذا الموضوع.
+
+## القسم الأول
+
+في هذا القسم سنتحدث عن الأساسيات والمفاهيم الأولية المتعلقة بـ ${newArticle.topic}. إن فهم هذه الأساسيات يساعد على فهم أعمق للموضوع.
+
+## القسم الثاني
+
+هنا سنتناول الجوانب التطبيقية والعملية. كيف يمكن تطبيق هذا الموضوع في الحياة اليومية وما هي الفوائد المترتبة على ذلك.
+
+## القسم الثالث
+
+نختتم بمناقشة المستقبل والتطورات المتوقعة في هذا المجال. ما هي التوقعات والفرص المتاحة.
+
+## الخلاصة
+
+في الختام، يمكن القول إن ${newArticle.topic} يمثل أهمية كبيرة ويحتاج إلى المزيد من الدراسة والبحث.
+
+---
+**الكلمات المفتاحية:** ${newArticle.topic}, تقنية, مستقبل, تطوير, دراسة`;
+
+      const wordCount = demoContent.split(/\s+/).length;
+      const newArt: Article = {
+        id: Date.now().toString(),
+        title: newArticle.topic,
+        content: demoContent,
+        imagePrompt: newArticle.topic,
+        image: `https://image.pollinations.ai/prompt/${encodeURIComponent(newArticle.topic)}?width=1200&height=630&nologo=true`,
+        category: newArticle.category,
+        tags: [newArticle.topic, 'مقالة', 'محتوى'],
+        adsenseReady: wordCount >= 800,
+        wordCount,
+        createdAt: new Date()
+      };
+      
+      setArticles([newArt, ...articles]);
+      setNewArticle({ ...newArticle, topic: '' });
+      setGenerationProgress('');
+      setIsGenerating(false);
+      return;
+    }
+
+    // Real API mode
     try {
       const genAI = new GoogleGenerativeAI(apiKey);
       const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
@@ -207,8 +285,10 @@ export default function App() {
     localStorage.removeItem('gemini_api_key');
     setApiKey('');
     setShowKeyInput(true);
+    setIsDemoMode(false);
     setArticles([]);
     setSystemStatus({ gemini: false, cloud: false, security: false, performance: false });
+    setStatus('جاري تحميل النظام...');
   };
 
   const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
@@ -274,6 +354,15 @@ export default function App() {
                 Google AI Studio
               </a>
             </p>
+
+            {/* Demo Mode Button */}
+            <button
+              type="button"
+              onClick={activateDemoMode}
+              className="w-full mt-3 py-3 bg-white/10 border border-white/20 rounded-xl font-medium text-slate-300 hover:bg-white/20 transition-all"
+            >
+              تجربة بدون مفتاح
+            </button>
           </form>
         </div>
       </div>
