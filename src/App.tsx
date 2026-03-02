@@ -6,6 +6,7 @@ import {
   Copy, Download, Settings, BarChart3, RefreshCw, CheckCircle, XCircle,
   Menu, X, LogOut, Wand2, TrendingUp, DollarSign, Target, PlusCircle
 } from 'lucide-react';
+import Navbar from './components/Navbar';
 
 interface Article {
   id: string;
@@ -297,7 +298,13 @@ ${newArticle.topic} هو موضوع هام في وقتنا الحالي. سنس�
   // Render Login Screen
   if (showKeyInput) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-slate-950 text-slate-50 font-['Tajawal']">
+        <Navbar 
+          currentView="home" 
+          setView={() => {}} 
+          isAuthenticated={false} 
+        />
+        <div className="min-h-[calc(100vh-64px)] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl"></div>
