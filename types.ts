@@ -1,2 +1,0 @@
-export enum ViewMode { HOME='HOME', DASHBOARD='DASHBOARD', EDITOR='EDITOR', POST='POST', WORKFLOW='WORKFLOW' }
-export interface Post { id:string; title:string; excerpt:string; content:string; category:string; image:string; views:number; date:string; readTime:string; }
